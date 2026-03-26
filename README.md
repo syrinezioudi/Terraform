@@ -164,4 +164,3 @@ Resource relationships & communication
 Drift handling (manual changes in Azure)
 SSH setup & best practices
 
-If you want, I can make a GitHub-ready, visually appealing version with em
