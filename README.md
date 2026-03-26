@@ -11,6 +11,7 @@ Subscription: Azure for Students
 Region: Switzerland North
 VM Size: Standard_D2s_v3
 OS: Ubuntu 24.04 LTS Gen2 x64
+
 2️⃣ Project Structure & File Explanation
 azure-terraform/
 │   terraform.auto.tfvars       # Auto-generated variable values including SSH key
@@ -34,6 +35,7 @@ Root files orchestrate the modules.
 Networking module sets up VNet and Subnet for the VM.
 VM module attaches VM to the network and optionally exposes it publicly.
 terraform.auto.tfvars is auto-generated; do not edit manually.
+
 3️⃣ Resource Relationships & Communication
 VM → NIC → Subnet → VNet → Resource Group
 Private IP: internal communication in subnet
@@ -44,6 +46,7 @@ OS Disk: stores VM system data
 Network Flow:
 
 Internet (optional) → Public IP → NIC → VM → Subnet → VNet → Resource Group
+
 4️⃣ Deployment Steps
 Step 1: Prerequisites
 Install Terraform ≥1.5
@@ -91,6 +94,7 @@ terraform destroy
 
 Cleans up all Azure resources to avoid costs.
 
+
 5️⃣ Drift / Manual UI Changes
 
 If you modify resources directly in the Azure Portal:
@@ -105,6 +109,7 @@ Or revert portal changes and let Terraform manage resources
 
 ✅ Always consider Terraform as the source of truth.
 
+
 6️⃣ Terraform Command Outputs & What They Generate
 Command	Purpose	Resources Created / Affected
 terraform fmt	Formats Terraform files	None
@@ -113,6 +118,7 @@ terraform validate	Checks syntax	Detects configuration errors
 terraform plan	Shows intended changes	Preview VM, NIC, Subnet, Public IP, RG creation
 terraform apply	Deploys resources	Creates VNet, Subnet, NIC, VM, Public IP, OS disk
 terraform destroy	Deletes all resources	Removes all created Azure resources
+
 7️⃣ Architecture Diagram
 
 Logical View:
@@ -135,11 +141,13 @@ VM hosted in Switzerland North
 OS Disk on Standard_LRS
 NIC attaches VM to subnet & VNet
 Public IP allows SSH from Internet
+
 8️⃣ Best Practices
 Terraform = source of truth; avoid manual Azure edits
 SSH key = single-line public key
 Use auto-generated .tfvars via PowerShell script
 Keep sensitive info out of repositories
+
 9️⃣ Useful Terraform Commands
 terraform init
 terraform fmt -recursive
