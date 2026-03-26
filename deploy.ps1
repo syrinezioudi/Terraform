@@ -1,6 +1,6 @@
 param(
-    [string]$TenantId       = "604f1a96-cbe8-43f8-abbf-f8eaf5d85730",
-    [string]$SubscriptionId = "dfcf47a6-1bc5-4234-8b97-18fcb6b87369",
+    [string]$TenantId       = "------------",
+    [string]$SubscriptionId = "------------",
     [string]$TerraformDir   = "D:\azure-terraform\terraform"
 )
 
